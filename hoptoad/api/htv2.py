@@ -167,7 +167,8 @@ def generate_payload(request, response=None, exception=None):
             value = xdoc.createTextNode(str(value))
             var.appendChild(value)
             sessions.appendChild(var)
-        xrequest.appendChild(sessions)
+        if sessions.childNodes:
+            xrequest.appendChild(sessions)
 
     # /notice/request/cgi-data/var -- all meta data
     cgidata = xdoc.createElement('cgi-data')
